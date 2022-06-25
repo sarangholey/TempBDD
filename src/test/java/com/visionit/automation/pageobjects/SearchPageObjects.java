@@ -32,10 +32,11 @@ public class SearchPageObjects {
 	public void validateSearchPageTitle()
 	{
 		WebDriverWait webDriverWait1 = new WebDriverWait(driver,20);
-		logger.info("Waiting for page title : \"Amazon.in : Laptop\"" );
-		webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : Laptop"));
+		//logger.info("Waiting for page title : \"Amazon.in : Laptop\"" );
+		webDriverWait1.until(ExpectedConditions.titleContains("Amazon.in"));
+		//logger.info("Waiting for page title : \"Amazon.in\"" );
 		//Assertion for Page Title
-		Assert.assertEquals("Page Title validation","Amazon.in : Laptop", driver.getTitle());
+		Assert.assertEquals("Page Title validation",true, driver.getTitle().contains("Amazon.in"));
 		scn.log("Page title validation successfull: " + driver.getTitle());
 		logger.info("Page title validation successfull: " + driver.getTitle());
 	}
